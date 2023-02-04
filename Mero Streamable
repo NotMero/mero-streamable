@@ -1,10 +1,3 @@
---███╗   ███╗███████╗██████╗  ██████╗     ███████╗████████╗██████╗ ███████╗ █████╗ ███╗   ███╗ █████╗ ██████╗ ██╗     ███████╗
---████╗ ████║██╔════╝██╔══██╗██╔═══██╗    ██╔════╝╚══██╔══╝██╔══██╗██╔════╝██╔══██╗████╗ ████║██╔══██╗██╔══██╗██║     ██╔════╝
---██╔████╔██║█████╗  ██████╔╝██║   ██║    ███████╗   ██║   ██████╔╝█████╗  ███████║██╔████╔██║███████║██████╔╝██║     █████╗  
---██║╚██╔╝██║██╔══╝  ██╔══██╗██║   ██║    ╚════██║   ██║   ██╔══██╗██╔══╝  ██╔══██║██║╚██╔╝██║██╔══██║██╔══██╗██║     ██╔══╝  
---██║ ╚═╝ ██║███████╗██║  ██║╚██████╔╝    ███████║   ██║   ██║  ██║███████╗██║  ██║██║ ╚═╝ ██║██║  ██║██████╔╝███████╗███████╗
---╚═╝     ╚═╝╚══════╝╚═╝  ╚═╝ ╚═════╝     ╚══════╝   ╚═╝   ╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝╚═╝     ╚═╝╚═╝  ╚═╝╚═════╝ ╚══════╝╚══════╝
-
-
+--Mero Runs you W
 
 local a=loadstring(game:HttpGet("https://raw.githubusercontent.com/NotMero/mero-streamable/main/streamable%20settings"))()a.TeamCheck(false)local b=game:GetService("Workspace")local c=game:GetService("Players")local d=game:GetService("RunService")local e=game:GetService("UserInputService")local c=c.LocalPlayer;local f=c:GetMouse()local b=b.CurrentCamera;local f={SilentAim=true,AimLock=false,Prediction=0.149357,AimLockKeybind=Enum.KeyCode.E}getgenv().DaHoodSettings=f;function a.Check()if not(a.Enabled==true and a.Selected~=c and a.SelectedPart~=nil)then return false end;local a=a.Character(a.Selected)local b=a:WaitForChild("BodyEffects")["K.O"].Value;local a=a:FindFirstChild("GRABBING_CONSTRAINT")~=nil;if(b or a)then return false end;return true end;local c;c=hookmetamethod(game,"__index",function(b,d)if(b:IsA("Mouse")and(d=="Hit"or d=="Target")and a.Check())then local a=a.SelectedPart;if(f.SilentAim and(d=="Hit"or d=="Target"))then local b=a.CFrame+(a.Velocity*f.Prediction)return(d=="Hit"and b or a)end end;return c(b,d)end)d:BindToRenderStep("AimLock",0,function()if(f.AimLock and a.Check()and e:IsKeyDown(f.AimLockKeybind))then local a=a.SelectedPart;local a=a.CFrame+(a.Velocity*f.Prediction)b.CFrame=CFrame.lookAt(b.CFrame.Position,a.Position)end end)local a="l"local b=game.Players.LocalPlayer:GetMouse()b.KeyDown:Connect(function(b)if b==a then if f.SilentAim==true then f.SilentAim=false else f.SilentAim=true end end end)
